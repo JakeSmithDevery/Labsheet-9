@@ -31,6 +31,30 @@ namespace Exam_2019
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+            if(selectedPlayers.Count > 10)
+            {
+                MessageBox.Show("You have too many players selected");
+            }
+
+            else
+            {
+                Player selected = lbxAllPlayers.SelectedItem as Player;
+
+                if (selected != null)
+                {
+                    selectedPlayers.Add(selected);
+                    allPlayers.Remove(selected);
+
+                    lbxAllPlayers.ItemsSource = null;
+                    lbxAllPlayers.ItemsSource = allPlayers;
+
+                    lbxSelectedPlayers.ItemsSource = null;
+                    lbxSelectedPlayers.ItemsSource = selectedPlayers;
+
+                    txtblk_Spaces.Text = (11 - selectedPlayers.Count).ToString();
+                }
+            }
+            
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -97,6 +121,26 @@ namespace Exam_2019
             allPlayers = CreatePlayers();
 
             lbxAllPlayers.ItemsSource = allPlayers;
+        }
+
+        private void btn_Remove_Players_Click(object sender, RoutedEventArgs e)
+        {
+            Player selected = lbxSelectedPlayers.SelectedItem as Player;
+
+            if (selected != null)
+            {
+                allPlayers.Add(selected);
+                selectedPlayers.Remove(selected);
+                
+
+                lbxAllPlayers.ItemsSource = null;
+                lbxAllPlayers.ItemsSource = allPlayers;
+
+                lbxSelectedPlayers.ItemsSource = null;
+                lbxSelectedPlayers.ItemsSource = selectedPlayers;
+                txtblk_Spaces.Text = (11 - selectedPlayers.Count).ToString();
+            }
+
         }
     }
 }
