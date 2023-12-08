@@ -13,7 +13,7 @@
         <Label Content="Selected Players&#xD;&#xA;" HorizontalAlignment="Left" Margin="547,100,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="txtblk_Spaces" HorizontalAlignment="Left" Margin="611,402,0,0" TextWrapping="Wrap" Text="11" VerticalAlignment="Top"/>
         <Label Content="Spaces&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="547,397,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.212,-0.681"/>
-        <Button x:Name="btn_Add_Player" Content="Add&gt;&gt;" HorizontalAlignment="Left" Margin="379,168,0,0" VerticalAlignment="Top" Click="Button_Click" Width="63"/>
+        <Button x:Name="btn_Add_Player" Content="Add&gt;&gt;" HorizontalAlignment="Left" Margin="380,168,0,0" VerticalAlignment="Top" Click="Button_Click" Width="63"/>
         <ListBox Margin="75,125,488,71" SelectionChanged="ListBox_SelectionChanged"/>
         <ListBox Margin="547,125,45,71"/>
         <Button x:Name="btn_Remove_Players" Content="&lt;&lt;Remove" HorizontalAlignment="Left" Margin="379,244,0,0" VerticalAlignment="Top"/>
