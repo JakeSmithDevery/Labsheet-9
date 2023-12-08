@@ -45,6 +45,9 @@ namespace Exam_2019
                     selectedPlayers.Add(selected);
                     allPlayers.Remove(selected);
 
+                    selectedPlayers.Sort();
+                    allPlayers.Sort();
+
                     lbxAllPlayers.ItemsSource = null;
                     lbxAllPlayers.ItemsSource = allPlayers;
 
@@ -118,9 +121,7 @@ namespace Exam_2019
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            allPlayers = CreatePlayers();
-
-            lbxAllPlayers.ItemsSource = allPlayers;
+            
         }
 
         private void btn_Remove_Players_Click(object sender, RoutedEventArgs e)
@@ -131,7 +132,9 @@ namespace Exam_2019
             {
                 allPlayers.Add(selected);
                 selectedPlayers.Remove(selected);
-                
+
+                selectedPlayers.Sort();
+                allPlayers.Sort();
 
                 lbxAllPlayers.ItemsSource = null;
                 lbxAllPlayers.ItemsSource = allPlayers;
@@ -141,6 +144,15 @@ namespace Exam_2019
                 txtblk_Spaces.Text = (11 - selectedPlayers.Count).ToString();
             }
 
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            allPlayers = CreatePlayers();
+
+            allPlayers.Sort();
+
+            lbxAllPlayers.ItemsSource = allPlayers;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Exam_2019
 {
 
     public enum Position { Goalkeeper, Defender, Midfielder, Forward}
-    public class Player
+    public class Player : IComparable
     {
         public string FirstName { get; set; }
 
@@ -34,6 +34,18 @@ namespace Exam_2019
         public override string ToString()
         {
             return $"{FirstName}{SurName}({Age}){PreferedPosition.ToString().ToUpper()}";
+        }
+
+        public int CompareTo(object obj)
+        {
+            Player that = obj as Player;
+
+            if(this.PreferedPosition > that.PreferedPosition)
+                return 1;
+            else if(this.PreferedPosition < that.PreferedPosition)
+                return -1;
+            else
+                return this.FirstName.CompareTo(that.FirstName);
         }
     }
 }
